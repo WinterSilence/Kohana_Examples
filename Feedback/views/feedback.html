@@ -1,0 +1,46 @@
+<form class="f-horizontal" action="{''|url}" method="post">
+	
+	<input type="hidden" name="csrf" value="{Security::token()}">
+	
+	{if isset($user)}
+	<input type="hidden" name="email" value="{$user->email|escape}">
+	{else}
+	<div class="wa-field">
+		<div class="wa-name">{'Email'|i18n}:</div>
+		<div class="wa-value {if Message::get('email')}{Message::type()}{/if}">
+			<input type="email" name="email" value="{$post.email|default:''|escape}">
+			{if Message::get('email')}<span class="help-inline">{Message::get('email')}</span>{/if}
+		</div>
+	</div>
+	{/if}
+	
+	<div class="wa-field">
+		<div class="wa-name">{'Title'|i18n}:</div>
+		<div class="wa-value {if Message::get('title')}{Message::type()}{/if}">
+			<input type="text" name="title" value="{$post.title|default:''|escape}">
+			{if Message::get('title')}<span class="help-inline">{Message::get('title')}</span>{/if}
+		</div>
+	</div>
+	
+	<div class="wa-field">
+		<div class="wa-name">{'Message'|i18n}:</div>
+		<div class="wa-value {if Message::get('message')}{Message::type()}{/if}">
+			<textarea id="wbbeditor" name="message">{$post.message|default:''|escape}</textarea>
+			{if Message::get('message')}<span class="help-inline">{Message::get('message')}</span>{/if}
+		</div>
+	</div>
+	
+	<div class="wa-field">
+		<div class="wa-value {if Message::get('captcha')}{Message::type()}{/if}">
+			<div class="wa-captcha">
+				<img class="wa-captcha-img" src="{'route:captcha'|url}" alt="{'Captcha'|i18n}">
+				<strong>→</strong>
+				<input type="text" name="captcha" class="wa-captcha-input">
+				{if Message::get('captcha')}<span class="help-inline">{Message::get('captcha')}</span>{/if}
+			</div>
+		</div>
+	</div>
+	
+	<button type="submit" class="f-bu" name="send">{'Send'|i18n}</button>
+	
+</form>
