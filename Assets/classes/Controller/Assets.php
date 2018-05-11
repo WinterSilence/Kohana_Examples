@@ -1,3 +1,4 @@
-<?php defined('SYSPATH') OR die('No direct script access.');
+<?php
 
-class Controller_Assets extends Kohana_Controller_Assets {}
+class Controller_Assets extends Kohana_Controller_Assets {
+}
