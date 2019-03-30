@@ -1,9 +1,8 @@
 <?php
-
-return array(
+return [
 	'source_dir'  => 'media',
-	'ignore_exts' => array('php', 'gitignore', 'htaccess', 'log'),
-	'ignore_dirs' => array('media/uploads'),
+	'ignore_dirs' => ['media/uploads'],
+	'ignore_exts' => ['php', 'gitignore', 'htaccess', 'log'],
 	'assets_path' => DOCROOT.'assets',
 	'base_uri'    => 'assets/',
-);
+];
